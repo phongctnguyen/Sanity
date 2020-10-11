@@ -1,0 +1,15 @@
+{
+	"_createdAt": "2020-09-30T14:30:47Z",
+	"_id": "0ab4a982-4a67-4ed4-8baf-da4d6f7ad2ad",
+	"_rev": "rXmiCMRWON0gdH4BbUK82d",
+	"_type": "game",
+	"_updatedAt": "2020-10-11T04:44:04Z",
+	"coverImage": {
+		"_sanityAsset": "image@file://./images/05a80ca7cfd652d19654f1e5d4e2013a8a2c9899-800x450.webp",
+		"_type": "image"
+	},
+	"date": "2020-10-10T17:00:00.000Z",
+	"slug": { "_type": "slug", "current": "god-of-war" },
+	"subtitle": "GOW",
+	"title": "God of War"
+}

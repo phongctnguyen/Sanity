@@ -6,49 +6,65 @@ import schemaTypes from 'all:part:@sanity/base/schema-type';
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-  // We name our schema
-  name: 'default',
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    {
-      name: 'game',
-      type: 'document',
-      title: 'Game',
-      fields: [
-        {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-        },
-        {
-          name: 'subtitle',
-          type: 'string',
-          title: 'Subtitle',
-        },
-        {
-          name: 'slug',
-          type: 'slug',
-          title: 'Slug',
-        },
-      ],
-    },
-    {
-      name: 'anime',
-      type: 'document',
-      title: 'Anime',
-      fields: [
-        {
-          name: 'title',
-          type: 'string',
-          title: 'Title',
-        },
-        {
-          name: 'subtitle',
-          type: 'string',
-          title: 'Subtitle',
-        },
-      ],
-    },
-  ]),
+	// We name our schema
+	name: 'default',
+	// Then proceed to concatenate our document type
+	// to the ones provided by any plugins that are installed
+	types: schemaTypes.concat([
+		{
+			name: 'author',
+			type: 'document',
+			title: 'Author',
+			fields: [
+				{
+					name: 'name',
+					title: 'Name',
+					type: 'string',
+				},
+				{
+					name: 'avatar',
+					title: 'Avatar',
+					type: 'image',
+				},
+			],
+		},
+		{
+			name: 'game',
+			type: 'document',
+			title: 'Game',
+			fields: [
+				{
+					name: 'title',
+					type: 'string',
+					title: 'Title',
+				},
+				{
+					name: 'subtitle',
+					type: 'string',
+					title: 'Subtitle',
+				},
+				{
+					name: 'coverImage',
+					title: 'Cover Image',
+					type: 'image',
+				},
+				{
+					name: 'date',
+					title: 'Date',
+					type: 'datetime',
+				},
+				{
+					name: 'author',
+					title: 'Author',
+					type: 'reference',
+					to: [{ type: 'author' }],
+				},
+				{
+					name: 'slug',
+					type: 'slug',
+					title: 'Slug',
+				},
+			],
+		},
+	]),
 });

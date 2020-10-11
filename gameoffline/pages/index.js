@@ -6,20 +6,27 @@ import CardListItem from 'components/CardListItem';
 
 import { getAllGames } from '../lib/api';
 
-export default function Home({ games }) {
-  return (
-    <PageLayout>
-      <AuthorIntro />
-      <hr />
-      <Row className='mb-5'>
-        {games.map((game) => (
-          <Col key={game.slug} md='4'>
-            <CardItem title={game.title} subtitle={game.subtitle} />
-          </Col>
-        ))}
-      </Row>
-    </PageLayout>
-  );
+export default function Home ({ games }) {
+  console.log(games);
+	return (
+		<PageLayout>
+			<AuthorIntro />
+			<hr />
+			<Row className='mb-5'>
+				{games.map(({ title, subtitle, slug, date, coverImage, author }) => (
+					<Col key={slug} md='4'>
+						<CardItem
+							title={title}
+							subtitle={subtitle}
+							date={date}
+              image={coverImage}
+              author={author}
+						/>
+					</Col>
+				))}
+			</Row>
+		</PageLayout>
+	);
 }
 
 // This function is called during the build time
@@ -27,9 +34,9 @@ export default function Home({ games }) {
 // create static page
 export async function getStaticProps() {
   const games = await getAllGames();
-  return {
-    props: {
-      games,
-    },
-  };
+	return {
+		props: {
+			games,
+		},
+	};
 }
